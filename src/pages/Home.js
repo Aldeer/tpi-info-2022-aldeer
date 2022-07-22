@@ -1,23 +1,25 @@
-import { Fragment, useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import NewsCard from "../components/card/NewsCard";
+import SearchBar from "../components/forms/SearchBar";
+import { useFetchApi } from "../hooks/useFetchApi";
 
-import { useCallApi } from "../hooks/useCallApi";
-
-//components
-import { Loading } from "../components/utils/Loading";
-import { GroupNewsCards } from "../components/card/GroupNewsCards";
-import "../styles/General.css"
-
-
-
-export const Home = () => {
-  const {data, loading, error} = useCallApi();
-  useEffect(() => {}, [data]);
-
+const Home = () => {
+  const [search, setSearch] = useState(null);
+  const { data, loading, error } = useFetchApi("bitcoin", 1);
+  const handleSearch = (data) => {
+    setSearch(data);
+  };
+  useEffect(() => {
+    console.log(search);
+  }, [search]);
   return (
-    <Fragment>
-      <div className="container">
-        {loading ? <Loading /> : <GroupNewsCards data={data}/>}
-      </div>
-    </Fragment>
+    <div>
+      <h2>Home</h2>
+      <SearchBar handleSearch={handleSearch} />
+      <hr />
+      <NewsCard />
+    </div>
   );
-}
+};
+
+export default Home;
