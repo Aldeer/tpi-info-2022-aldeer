@@ -12,7 +12,7 @@ const Home = () => {
   const handleSearch = (data) => {
     setSearch(data);
   };
-  console.log(data);
+
   useEffect(() => {}, [search]);
 
   return (

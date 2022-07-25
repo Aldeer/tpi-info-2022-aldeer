@@ -16,7 +16,7 @@ export const useFetchApi = (search, page) => {
       return await axios
         .get(url)
         .then((res) => {
-          console.log(res);
+          //console.log(res);
           setData(res.data);
           setLoading(false);
         })
