@@ -1,9 +1,9 @@
 import React from "react";
 
-const LinkCard = () => {
+const LinkCard = ({ url }) => {
   return (
     <div>
-      <h3>link</h3>
+      <h3>{url}</h3>
     </div>
   );
 };

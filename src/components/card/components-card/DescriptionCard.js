@@ -1,9 +1,9 @@
 import React from "react";
 
-const DescriptionCard = () => {
+const DescriptionCard = ({ description }) => {
   return (
     <div>
-      <h3>Descripcion</h3>
+      <h3>{description}</h3>
     </div>
   );
 };

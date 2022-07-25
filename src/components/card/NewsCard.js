@@ -5,15 +5,15 @@ import LinkCard from "./components-card/LinkCard";
 import TitleCard from "./components-card/TitleCard";
 import DateCard from "./components-card/DateCard";
 
-const NewsCard = () => {
+const NewsCard = ({ el }) => {
   return (
     <div>
       <h2>Tarjeta de noticia</h2>
-      <TitleCard />
-      <ImageCard />
-      <DescriptionCard />
-      <LinkCard />
-      <DateCard />
+      <TitleCard title={el.title} />
+      <ImageCard urlToImage={el.urlToImage} />
+      <DescriptionCard description={el.description} />
+      <LinkCard url={el.url} />
+      <DateCard publishedAt={el.publishedAt} />
     </div>
   );
 };

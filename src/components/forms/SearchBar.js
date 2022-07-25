@@ -1,27 +1,24 @@
 import React, { useState } from "react";
 
-const initialForm = { search: "" };
+const initialSearch = "";
 
 const SearchBar = ({ handleSearch }) => {
-  const [form, setform] = useState(initialForm);
-
+  const [form, setform] = useState(initialSearch);
+  //console.log(form);
   const handleChange = (e) => {
-    setform({
-      ...form,
-      [e.target.name]: e.target.value,
-    });
+    setform(e.target.value);
   };
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!form.search) {
+    if (!form) {
       alert("Advertencia: Busqueda vacia");
       return;
     }
 
-    if (form.search.trim().length > 2) {
+    if (form.trim().length > 2) {
       handleSearch(form);
-      setform(initialForm);
+      setform(initialSearch);
     } else {
       alert("Advertencia: Ingreso menos de 3 caracteres");
       return;
@@ -36,7 +33,7 @@ const SearchBar = ({ handleSearch }) => {
           name="search"
           placeholder="Buscar noticia"
           onChange={handleChange}
-          value={form.search}
+          value={form}
         />
         <input type="submit" value="Buscar" />
       </form>

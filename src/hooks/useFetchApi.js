@@ -7,15 +7,16 @@ export const useFetchApi = (search, page) => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-
-  let url = `https://newsapi.org/v2/everything?q=${search}&apiKey=${API_KEY}&page=${page}&pageSize=10`;
+  //console.log(search);
+  let url = `https://newsapi.org/v2/everything?q=${search}&apiKey=${API_KEY}&page=${page}&pageSize=10&language=es`;
 
   const fetch = async () => {
-    if (search.length >= 3) {
+    if (search) {
       setLoading(true);
       return await axios
         .get(url)
         .then((res) => {
+          console.log(res);
           setData(res.data);
           setLoading(false);
         })

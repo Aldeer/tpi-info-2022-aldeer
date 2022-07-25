@@ -1,9 +1,9 @@
 import React from "react";
 
-const DateCard = () => {
+const DateCard = ({ publishedAt }) => {
   return (
     <div>
-      <h3>Fecha</h3>
+      <h3>{publishedAt}</h3>
     </div>
   );
 };

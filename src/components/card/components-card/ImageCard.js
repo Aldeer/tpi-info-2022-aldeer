@@ -1,9 +1,9 @@
 import React from "react";
 
-const ImageCard = () => {
+const ImageCard = ({ urlToImage }) => {
   return (
     <div>
-      <h3>Imagen</h3>
+      <img src={urlToImage} alt="..." />
     </div>
   );
 };
