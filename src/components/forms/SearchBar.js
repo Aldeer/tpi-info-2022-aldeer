@@ -35,7 +35,7 @@ const SearchBar = ({ handleSearch }) => {
           onChange={handleChange}
           value={form}
         />
-        <input type="submit" value="Buscar" />
+        {form.length >= 3 && <input type="submit" value="Buscar" />}
       </form>
     </div>
   );
