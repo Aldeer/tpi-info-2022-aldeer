@@ -26,7 +26,7 @@ export const useFetchApi = (search, page) => {
 
   useEffect(() => {
     fetch();
-  }, [search]);
+  }, [search, page]);
 
   return { data, loading, error };
 };

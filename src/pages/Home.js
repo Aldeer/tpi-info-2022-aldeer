@@ -15,6 +15,7 @@ const Home = () => {
 
   const handleSearch = (data) => {
     setSearch(data);
+    setPage(1);
   };
 
   const totalPage = () => {
@@ -25,7 +26,7 @@ const Home = () => {
 
   useEffect(() => {
     totalPage();
-  }, [search]);
+  }, [search, page]);
 
   return (
     <div>
@@ -40,8 +41,9 @@ const Home = () => {
       {data !== null && data?.totalResults > 0 && !loading && (
         <Pagination
           setTotal={setTotal}
-          totalResults={data.totalResults}
+          total={total}
           setPage={setPage}
+          page={page}
         />
       )}
     </div>
