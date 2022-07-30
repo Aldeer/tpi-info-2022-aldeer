@@ -1,0 +1,32 @@
+img {
+  align-items: center;
+  width: 236px;
+  height: 226px;
+}
+.link-notice {
+  text-decoration: none;
+  color: black;
+}
+.link-notice:hover {
+  color: black;
+}
+.grid-1-2 {
+  display: grid;
+  grid-template-columns: 80% auto;
+  text-decoration: none;
+}
+
+.box {
+  margin: 10px 20px;
+  border-radius: 5px;
+  border: 2px solid black;
+  height: 230px;
+}
+
+.text-notice {
+  margin: 2px;
+}
+
+.results {
+  margin-left: 20px;
+}

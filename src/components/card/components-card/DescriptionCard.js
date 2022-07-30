@@ -8,11 +8,9 @@ const DescriptionCard = ({ description }) => {
     shortDescription += arrayDescription[i] + " ";
   }
 
-  console.log(shortDescription);
-
   return (
     <div>
-      <h5>{shortDescription}...</h5>
+      <h4>{shortDescription}...</h4>
     </div>
   );
 };

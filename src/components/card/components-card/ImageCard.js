@@ -2,8 +2,8 @@ import React from "react";
 
 const ImageCard = ({ urlToImage }) => {
   return (
-    <div>
-      <img src={urlToImage} alt="..." />
+    <div className="box-image">
+      <img className="image-nocite" src={urlToImage} alt="..." />
     </div>
   );
 };

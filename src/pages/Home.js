@@ -4,26 +4,46 @@ import NewsCard from "../components/card/NewsCard";
 import SearchBar from "../components/forms/SearchBar";
 import { useFetchApi } from "../hooks/useFetchApi";
 import NoResults from "../components/NoResults";
+import TotalResults from "../components/TotalResults";
+import Pagination from "../components/Pagination";
 
 const Home = () => {
   const [search, setSearch] = useState(null);
-  const { data, loading, error } = useFetchApi(search, 1);
+  const [page, setPage] = useState(1);
+  const [total, setTotal] = useState(0);
+  const { data, loading, error } = useFetchApi(search, page);
 
   const handleSearch = (data) => {
     setSearch(data);
   };
 
-  useEffect(() => {}, [search]);
+  const totalPage = () => {
+    if (data) {
+      setTotal(Math.ceil(data.totalResults / 10));
+    }
+  };
+
+  useEffect(() => {
+    totalPage();
+  }, [search]);
 
   return (
     <div>
       <h2>Home</h2>
       <SearchBar handleSearch={handleSearch} />
       <hr />
+      {data?.totalResults && <TotalResults totalResults={data.totalResults} />}
       {loading && <Loading />}
       {search &&
         !loading &&
         data?.articles.map((el, index) => <NewsCard key={index} el={el} />)}
+      {data !== null && data?.totalResults > 0 && !loading && (
+        <Pagination
+          setTotal={setTotal}
+          totalResults={data.totalResults}
+          setPage={setPage}
+        />
+      )}
     </div>
   );
 };

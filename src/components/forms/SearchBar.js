@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 
-const initialSearch = "";
-
 const SearchBar = ({ handleSearch }) => {
+  let initialSearch = "";
   const [form, setform] = useState(initialSearch);
   //console.log(form);
   const handleChange = (e) => {

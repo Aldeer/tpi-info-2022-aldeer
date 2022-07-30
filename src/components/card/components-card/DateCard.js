@@ -8,7 +8,7 @@ const DateCard = ({ publishedAt }) => {
   //console.log(published);
   return (
     <div>
-      <h3>Publicado el: {published}</h3>
+      <h6>Publicado el: {published}</h6>
     </div>
   );
 };
